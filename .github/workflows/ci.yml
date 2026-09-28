@@ -1,0 +1,28 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements-dev.txt
+      - name: Tests
+        run: pytest -q
+      - name: Notebook executes
+        run: jupyter nbconvert --to notebook --execute Crypto_Clustering.ipynb --output /tmp/executed.ipynb
+      - name: Figures build
+        run: python scripts/make_figures.py
+      - name: Bandit
+        run: bandit -r src scripts -ll
