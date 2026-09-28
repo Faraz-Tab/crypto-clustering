@@ -4,4 +4,4 @@ scikit-learn==1.8.0
 matplotlib==3.10.8
 hvplot==0.12.2
 holoviews==1.23.2
-bokeh==3.9.2
+bokeh==3.10.0
