@@ -1,7 +1,7 @@
 pandas==3.0.2
 numpy==2.4.4
 scikit-learn==1.8.0
-matplotlib==3.10.8
+matplotlib==3.11.2
 hvplot==0.12.2
 holoviews==1.23.2
 bokeh==3.9.2
